@@ -45,10 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Copy.cs" />
+    <Compile Include="Models\Encrypt.cs" />
+    <Compile Include="Models\FileProperties.cs" />
+    <Compile Include="Models\Move.cs" />
+    <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\ZipFileCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\ReadMe.md" />
     <None Include="packages.config" />
     <None Include="ReadMe.md" />
   </ItemGroup>
