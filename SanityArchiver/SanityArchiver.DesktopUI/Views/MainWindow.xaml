@@ -22,8 +22,8 @@
                         <Setter.Value>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="25" Height="15" Source="{Binding Path=Tag,RelativeSource={RelativeSource AncestorLevel=1,AncestorType=TreeViewItem,Mode=FindAncestor},Converter={StaticResource img}}"></Image>
-                                    <TextBlock FontWeight="Heavy" Text="{Binding}" FontFamily="Microsoft JhengHei UI"></TextBlock>
+                                    <Image Width="25" Height="15"  Source="{Binding Path=Tag,RelativeSource={RelativeSource AncestorLevel=1,AncestorType=TreeViewItem,Mode=FindAncestor},Converter={StaticResource img}}"></Image>
+                                    <TextBlock FontWeight="Heavy"  Text="{Binding}" FontFamily="Microsoft JhengHei UI"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </Setter.Value>

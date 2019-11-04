@@ -49,15 +49,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
                     {
                         DirectoryInfo _dirinfo = new DirectoryInfo(dir);
                         Populate(_dirinfo.Name, _dirinfo.FullName, null, _item, false);
-                    }
-                    foreach (string dir in Directory.GetFiles(_item.Tag.ToString()))
-                    {
-                        FileInfo _dirinfo = new FileInfo(dir);
-                        items.Add(new FileProperties() { CheckboxName = _dirinfo.FullName, FileName = _dirinfo.Name, CreatedTime = _dirinfo.CreationTime, Size = System.String.Format("{0}KB", _dirinfo.Length / 1024) });
-
-                    }                     
-                    _FolderPath = _item.Tag.ToString();
-                    FolderFiles = items;
+                    }                    
                 }
             }
             catch (System.UnauthorizedAccessException)

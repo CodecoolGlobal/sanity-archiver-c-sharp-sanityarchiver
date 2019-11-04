@@ -13,11 +13,13 @@ using SanityArchiver.DesktopUI.ViewModels;
 
 namespace SanityArchiver.DesktopUI.Views
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -28,11 +30,9 @@ namespace SanityArchiver.DesktopUI.Views
 
         private void folders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (e.Source is TreeViewItem && ((TreeViewItem)e.Source).IsSelected)
-            {
-                
-
-            }
+            var FolderContent = new FolderContent();
+            string FolderTag = ((System.Windows.FrameworkElement)folders.SelectedItem).Tag.ToString();
+            SelectedFolderContain.ItemsSource = FolderContent.GetAllFiles(FolderTag);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -41,8 +41,7 @@ namespace SanityArchiver.DesktopUI.Views
             foreach (DriveInfo driv in DriveInfo.GetDrives())
             {
                 if (driv.IsReady)
-                {
-                    FolderTree.Folder
+                {                     
                     FolderTree.Populate(driv.VolumeLabel + "(" + driv.Name + ")", driv.Name, folders, null, false);                    
                 }
             }
