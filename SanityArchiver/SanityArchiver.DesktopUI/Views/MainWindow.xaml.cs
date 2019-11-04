@@ -13,13 +13,13 @@ using SanityArchiver.DesktopUI.ViewModels;
 
 namespace SanityArchiver.DesktopUI.Views
 {
-    
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -41,12 +41,23 @@ namespace SanityArchiver.DesktopUI.Views
             foreach (DriveInfo driv in DriveInfo.GetDrives())
             {
                 if (driv.IsReady)
-                {                     
-                    FolderTree.Populate(driv.VolumeLabel + "(" + driv.Name + ")", driv.Name, folders, null, false);                    
+                {
+                    FolderTree.Populate(driv.VolumeLabel + "(" + driv.Name + ")", driv.Name, folders, null, false);
                 }
             }
+        }
+        private void isFileSelected(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
 
         }
+        private void CompressAction(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void DecompressAction(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
