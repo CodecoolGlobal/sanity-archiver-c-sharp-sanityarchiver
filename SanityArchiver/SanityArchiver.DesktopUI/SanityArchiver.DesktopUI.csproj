@@ -72,6 +72,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\ImageToHeaderConverter.cs" />
+    <Compile Include="Converters\StringOperations.cs" />
     <Compile Include="ViewModels\AtribiutesView.cs" />
     <Compile Include="ViewModels\FolderContent.cs" />
     <Compile Include="ViewModels\FolderTree.cs" />
