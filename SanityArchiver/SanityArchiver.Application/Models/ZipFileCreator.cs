@@ -13,6 +13,7 @@ namespace SanityArchiver.Application.Models
         /// </summary>
         /// <param name="fileName">The full path and name to store the ZIP file at.</param>
         /// <param name="files">The list of files to be added.</param>
+        /// /// <param name="archiveName"></param>
         public static void CreateZipFile(string fileName, IEnumerable<string> files, string archiveName)
         {
             // Create and open a new ZIP file
