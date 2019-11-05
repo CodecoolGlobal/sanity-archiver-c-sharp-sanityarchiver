@@ -53,6 +53,14 @@ namespace SanityArchiver.DesktopUI.Views
             string filePath = dataContext.CheckboxName;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
         }
+
+        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            var dataContext = (Application.Models.FileProperties)item.DataContext;
+            AtribiutesView.ShowDialogWindowWithAttributes(dataContext.FileName, dataContext.Extension, dataContext.isHidden);
+        }
+
         private void CompressAction(object sender, RoutedEventArgs e)
         {
 

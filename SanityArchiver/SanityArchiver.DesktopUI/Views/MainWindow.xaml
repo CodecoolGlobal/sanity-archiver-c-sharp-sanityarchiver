@@ -57,6 +57,11 @@
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">                 
+                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Button x:Name="Compress" Click="CompressAction" Visibility="Hidden" Content="Compress" HorizontalAlignment="Left" Margin="229,54,0,0" VerticalAlignment="Top" Width="245"/>
         <Button x:Name="Decompress" Content="Decompress" Click="DecompressAction" Visibility="Hidden"  HorizontalAlignment="Left" Margin="479,54,0,0" VerticalAlignment="Top" Width="218" Height="20"/>
