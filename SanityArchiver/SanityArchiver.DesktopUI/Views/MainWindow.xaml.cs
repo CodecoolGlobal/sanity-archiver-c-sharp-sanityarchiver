@@ -49,7 +49,9 @@ namespace SanityArchiver.DesktopUI.Views
         private void isFileSelected(object sender, RoutedEventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-
+            var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
+            string filePath = dataContext.CheckboxName;
+            FolderContent.CheckIfEncryptable(filePath, Encrypt);
         }
         private void CompressAction(object sender, RoutedEventArgs e)
         {
@@ -59,5 +61,6 @@ namespace SanityArchiver.DesktopUI.Views
         {
 
         }
+
     }
 }

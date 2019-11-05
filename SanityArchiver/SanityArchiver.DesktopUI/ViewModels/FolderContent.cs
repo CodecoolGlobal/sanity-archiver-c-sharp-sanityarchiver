@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using SanityArchiver.Application.Models;
+using System.Windows;
 
 namespace SanityArchiver.DesktopUI.ViewModels
 {
@@ -21,5 +23,31 @@ namespace SanityArchiver.DesktopUI.ViewModels
             }
             return items;
         }
+
+        public static void CheckIfEncryptable(string filePath, Button encryptButton)
+        {
+            if (filePath.Contains(".txt"))
+            {
+                encryptButton.Content = "Encrypt";
+                encryptButton.Visibility = Visibility.Visible;
+                encryptButton.Click += (sender, e) =>
+                {
+                    Encrypt.EncryptFile(filePath);
+                    encryptButton.Visibility = Visibility.Hidden;
+                };
+            }
+            if (filePath.Contains(".ENC"))
+            {
+                encryptButton.Content = "Decrypt";
+                encryptButton.Visibility = Visibility.Visible;
+                encryptButton.Click += (sender, e) =>
+                {
+                    Encrypt.DecryptFile(filePath);
+                    encryptButton.Visibility = Visibility.Hidden;
+                };
+            }
+        }
+
+
     }
 }
