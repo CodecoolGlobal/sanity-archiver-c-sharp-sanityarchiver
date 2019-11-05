@@ -14,5 +14,6 @@ namespace SanityArchiver.Application.Models
         public string FullName { get; set; }
         public bool isHidden { get; set; }
         public string Extension { get; set; }
+        public string CheckboxName { get; set; }
     }
 }

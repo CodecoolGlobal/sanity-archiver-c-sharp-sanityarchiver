@@ -22,6 +22,6 @@ namespace SanityArchiver.DesktopUI.Views
         public DialogWindow()
         {
             InitializeComponent();
-        }
+        }       
     }
 }
