@@ -7,11 +7,11 @@ namespace SanityArchiver.Application.Models
 {
 
 
-    class Encrypt
+    public class Encrypt
     {
-        Aes myAes = Aes.Create();
+        static Aes myAes = Aes.Create();
 
-        public void EncryptFile(string fileName)
+        public static void EncryptFile(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -23,7 +23,7 @@ namespace SanityArchiver.Application.Models
             }
         }
 
-        public void DecryptFile(string fileName)
+        public static void DecryptFile(string fileName)
         {
             if (File.Exists(fileName))
             {
