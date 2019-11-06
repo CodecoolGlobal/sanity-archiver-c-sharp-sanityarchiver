@@ -52,15 +52,9 @@ namespace SanityArchiver.DesktopUI.Views
             var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
             string filePath = dataContext.CheckboxName;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
+            
         }
-        private void CompressAction(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void DecompressAction(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
     }
 }

@@ -48,6 +48,41 @@ namespace SanityArchiver.DesktopUI.ViewModels
             }
         }
 
+        public static void CheckIfCompressable(string[] _selectedFilesPath, Button zipbutton)
+        {
+            if(_selectedFilesPath.Length > 0)
+            {
+                if (_selectedFilesPath.Length == 1 & _selectedFilesPath.Contains(".zip"))
+                {
+                    zipbutton.Content = "Unzip";
+                    zipbutton.Visibility = Visibility.Visible;
+                    zipbutton.Click += (sender, e) =>
+                    {
+                        //ZipFileCreator.DecompressFile(_selectedFilesPath)
+                        zipbutton.Visibility = Visibility.Hidden;
+                    };
+                }
+                else
+                {
+                    zipbutton.Content = "Compress";
+                    zipbutton.Visibility = Visibility.Visible;
+                    zipbutton.Click += (sender, e) =>
+                    {
+                        //ZipFileCreator.CreateZipFile(_selectedFilesPath)
+                        zipbutton.Visibility = Visibility.Hidden;
+                    };
+                }
+               
+            }
+            else
+            {
 
+            }
+        }
+
+        private static void Zipbutton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
