@@ -43,6 +43,7 @@ namespace SanityArchiver.DesktopUI.Views
                 if (driv.IsReady)
                 {
                     FolderTree.Populate(driv.VolumeLabel + "(" + driv.Name + ")", driv.Name, folders, null, false);
+
                 }
             }
         }
@@ -59,5 +60,25 @@ namespace SanityArchiver.DesktopUI.Views
         {
 
         }
+
+        private void SearchButton_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+            {
+                SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+            }
+        }
+
+        private void SearchInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+                {
+                    SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+                }
+            }
+        }
+
     }
 }
