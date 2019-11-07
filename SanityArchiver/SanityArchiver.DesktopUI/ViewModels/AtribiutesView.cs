@@ -131,7 +131,6 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 };
                 file.GetFileName(path);
                 file.SetExtension(extension.Text, path);
-                file.ChangeName(fileName.Text, path);
                 if (hidden.IsChecked == true)
                 {
                     file.isHidden = true;
@@ -141,8 +140,8 @@ namespace SanityArchiver.DesktopUI.ViewModels
                     file.isHidden = false;
                 }
                 file.HideFile(path);
-                fileSecurity.AddAccessRule(new FileSystemAccessRule(user, FileSystemRights.FullControl, AccessControlType.Deny));
-                fileInfo.SetAccessControl(fileSecurity);
+                file.ChangeName(fileName.Text, path);
+                dialogWindow.Close();
             };
         }
 
