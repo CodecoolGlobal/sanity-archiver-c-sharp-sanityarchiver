@@ -23,6 +23,10 @@ namespace SanityArchiver.DesktopUI.Views
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
+        private string[] paths = new string[1]; 
+        bool ischecked = false;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,7 +56,14 @@ namespace SanityArchiver.DesktopUI.Views
             CheckBox checkBox = sender as CheckBox;
             var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
             string filePath = dataContext.CheckboxName;
+            paths[0] = filePath;
+            ischecked = true;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
+            if(dataContext.Extension == ".txt")
+            {
+                Open.Visibility = Visibility.Visible;
+               
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -90,5 +101,10 @@ namespace SanityArchiver.DesktopUI.Views
             }
         }
 
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModels.TextFileDisplay.ShowDialogWithText(paths[0]);
+            ischecked = false;
+        }
     }
 }
