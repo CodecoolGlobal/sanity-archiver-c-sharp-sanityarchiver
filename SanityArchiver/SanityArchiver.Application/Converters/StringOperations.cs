@@ -27,7 +27,7 @@ namespace SanityArchiver.DesktopUI.Converters
 
         public static string GetFilePathWithoutName(string path)
         {
-            path = path.Substring(0, Path.GetFileName(path).Length);
+            path = Path.GetDirectoryName(path) + "\\";
             return path;
         }
     }

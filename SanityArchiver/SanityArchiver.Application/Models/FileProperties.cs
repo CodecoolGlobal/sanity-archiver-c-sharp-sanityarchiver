@@ -48,7 +48,7 @@ namespace SanityArchiver.Application.Models
         public void HideFile(string path)
         {
             FileAttributes fileAttributes = File.GetAttributes(path);
-            if (!isHidden)
+            if (isHidden)
             {
                 fileAttributes = FileAttributes.Hidden;
                 File.SetAttributes(path, fileAttributes);
