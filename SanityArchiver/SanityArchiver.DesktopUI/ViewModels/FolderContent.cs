@@ -64,19 +64,16 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 };
             }
         }
-        public static void ListPathManipulation(string FilePath,CheckBox checkBox, List<string> Zip)
+        public static void ListPathManipulation(string FilePath,CheckBox checkBox,Zip Zip)
         {
            if (checkBox.IsChecked.Equals(true))
            {
-                Zip.Add(FilePath);                
+                Zip.PathList.Add(FilePath);                
            }
            if (checkBox.IsChecked.Equals(false))
-            {
-                var item = Zip.SingleOrDefault(x => x == FilePath);
-                if (item != null)
-                {
-                    Zip.Remove(item);
-                }
+            {             
+              Zip.PathList.Remove(FilePath);
+                
                     
             }
         }
@@ -108,7 +105,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
             }
             else
             {
-
+                zipbutton.Visibility = Visibility.Hidden;
             }
         }
 

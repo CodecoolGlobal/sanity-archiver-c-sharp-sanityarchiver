@@ -72,8 +72,9 @@ namespace SanityArchiver.DesktopUI.Views
                 Open.Visibility = Visibility.Visible;
                
             }
-            FolderContent.ListPathManipulation(filePath, checkBox, Zip.PathList);
+            FolderContent.ListPathManipulation(filePath, checkBox, Zip);
             FolderContent.CheckIfCompressable(Zip.PathList, Compress);
+            //FolderContent.CheckIfCompressable(Zip.PathList, Compress);
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -141,5 +142,11 @@ namespace SanityArchiver.DesktopUI.Views
             ViewModels.TextFileDisplay.ShowDialogWithText(paths[0]);
             ischecked = false;
         }
+        private void CompressAction(object sender, RoutedEventArgs e)
+        {
+            Zip.AskForArchiveName();
+
+        }
     }
+
 }

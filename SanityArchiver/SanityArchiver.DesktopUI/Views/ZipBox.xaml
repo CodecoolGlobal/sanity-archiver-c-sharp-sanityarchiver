@@ -5,18 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SanityArchiver.DesktopUI.Views"
         mc:Ignorable="d"
-        Title="ZipBox" Height="201.121" Width="291.334">
+        Title="ZipBox" Height="114.454" Width="291.334">
     <StackPanel>
         <TextBlock Text="Enter archive name" />
         <TextBox x:Name="ResponseTextBox" Height="26" Margin="0,0,-0.333,0" />
-        <Button Content="OK" Click="OKButton_Click" Height="56" Margin="0,0,-0.333,0" RenderTransformOrigin="0.504,2.167" HorizontalAlignment="Right" Width="285" />
-        <ListView Height="73" Margin="0,0,-0.333,0" Name="FilesList">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button Content="OK" Click="OKButton_Click" Height="44" Margin="0,0,-0.333,0" RenderTransformOrigin="0.504,2.167" HorizontalAlignment="Right" Width="285" />
+        
 
 
     </StackPanel>

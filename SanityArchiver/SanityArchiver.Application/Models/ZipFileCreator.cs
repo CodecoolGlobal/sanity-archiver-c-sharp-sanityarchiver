@@ -19,9 +19,9 @@ namespace SanityArchiver.Application.Models
         
         public static void CreateZipFile(List<string>PathList, string archiveName)  
         {
-            
+            var Directory = Path.GetDirectoryName(PathList[0]);
             // Create and open a new ZIP file
-            var zip = ZipFile.Open(archiveName + ".rar", ZipArchiveMode.Create);
+            var zip = ZipFile.Open(Directory +"/"+archiveName + ".rar", ZipArchiveMode.Create);
             foreach (var file in PathList)
             {
                 // Add the entry for each file

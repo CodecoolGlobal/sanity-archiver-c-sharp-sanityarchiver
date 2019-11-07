@@ -10,15 +10,25 @@ namespace SanityArchiver.DesktopUI.ViewModels
 {
     public class Zip
     { 
-        public List<string> PathList {get; set; }
+        public string Record { set; get; }
+        
+        public List<string> PathList = new List<string>();
+        
         
 
-        public void AskForArchiveName(string text)
+        public void AskForArchiveName()
         {
             
             var dialogWindow = new Views.ZipBox();
-            dialogWindow.SelectedFiles = PathList;            
-            
+            dialogWindow.SelectedFiles = PathList;
+            if (dialogWindow.ShowDialog() == true)
+            {
+                
+
+
+            }
+
+
         }
     }
 }

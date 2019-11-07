@@ -19,11 +19,12 @@ namespace SanityArchiver.DesktopUI.Views
     /// Interaction logic for ZipBox.xaml
     /// </summary>
     public partial class ZipBox : Window
-    {   
-        public List<string> SelectedFiles { get; set; }
+    {
+        public List<string> SelectedFiles = new List<string>();
         public ZipBox()
         {
             InitializeComponent();
+            
         }
         
         public string ResponseText
@@ -37,9 +38,6 @@ namespace SanityArchiver.DesktopUI.Views
             DialogResult = true;
             ZipFileCreator.CreateZipFile(SelectedFiles, ResponseText);
         }
-        public void FilesSelectedOutput(List<string> dupa)
-        {
-            FilesList.SelectedItem = dupa;   
-        }
+       
     }
 } 
