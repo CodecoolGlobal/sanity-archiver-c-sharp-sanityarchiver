@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace SanityArchiver.DesktopUI.ViewModels
 {
-    class SearchPhrase
+    class SearchViewModel
     {
        
 
@@ -23,7 +23,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
             }
             else
             {
-                SanityArchiver.Application.Models.Search.Phrase = phrase;
+                SanityArchiver.Application.Models.SearchModel.Phrase = phrase;
                 return true;
             }
         }
@@ -37,7 +37,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         {
             var FolderContent = new FolderContent();
             var items = new List<FileProperties>();
-            List<string> FolderTag = Search.GetAllSearchedFiles();
+            List<string> FolderTag = SearchModel.GetAllSearchedFiles();
             foreach (var file in FolderTag)
             {
                 FileInfo _dirinfo = new FileInfo(file);

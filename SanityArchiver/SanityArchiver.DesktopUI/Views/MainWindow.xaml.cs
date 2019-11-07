@@ -64,9 +64,9 @@ namespace SanityArchiver.DesktopUI.Views
 
         private void SearchButton_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+            if (SearchViewModel.IsPhraseLongEnough(SearchInput.Text))
             {
-                SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+                SearchViewModel.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
             }
         }
 
@@ -74,9 +74,9 @@ namespace SanityArchiver.DesktopUI.Views
         {
             if (e.Key == Key.Enter)
             {
-                if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+                if (SearchViewModel.IsPhraseLongEnough(SearchInput.Text))
                 {
-                    SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+                    SearchViewModel.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
                 }
             }
         }
