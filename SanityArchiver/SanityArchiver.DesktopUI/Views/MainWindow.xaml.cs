@@ -60,16 +60,7 @@ namespace SanityArchiver.DesktopUI.Views
             var item = sender as ListViewItem;
             var dataContext = (Application.Models.FileProperties)item.DataContext;
             AtribiutesView.ShowDialogWindowWithAttributes(dataContext.FullName, dataContext.FileName, dataContext.Extension, dataContext.isHidden);
-        }
-
-        private void CompressAction(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void DecompressAction(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }        
 
         private void SearchButton_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

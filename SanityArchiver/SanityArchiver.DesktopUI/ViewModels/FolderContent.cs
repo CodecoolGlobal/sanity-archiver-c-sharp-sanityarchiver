@@ -15,21 +15,29 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public List<FileProperties> GetAllFiles(string FolderPath)
         {
             var items = new List<FileProperties>();
-            foreach (string dir in Directory.GetFiles(FolderPath))
+            try
             {
-                FileInfo _dirinfo = new FileInfo(dir);
-                FileProperties file = new FileProperties()
+                foreach (string dir in Directory.GetFiles(FolderPath))
                 {
-                    CheckboxName = _dirinfo.FullName,
-                    FileName = _dirinfo.Name,
-                    CreatedTime = _dirinfo.CreationTime,
-                    Size = System.String.Format("{0}KB", _dirinfo.Length / 1024),
-                };
-                items.Add(file);
-                file.GetFileName(_dirinfo.FullName);
+                    FileInfo _dirinfo = new FileInfo(dir);
+                    FileProperties file = new FileProperties()
+                    {
+                        CheckboxName = _dirinfo.FullName,
+                        FileName = _dirinfo.Name,
+                        CreatedTime = _dirinfo.CreationTime,
+                        Size = System.String.Format("{0}KB", _dirinfo.Length / 1024),
+                    };
+                    items.Add(file);
+                    file.GetFileName(_dirinfo.FullName);
 
+                }
+                return items;
             }
-            return items;
+            catch(System.UnauthorizedAccessException)
+            {
+                return null;
+            }
+            
         }
 
         public static void CheckIfEncryptable(string filePath, Button encryptButton)
