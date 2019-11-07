@@ -32,6 +32,7 @@ namespace SanityArchiver.DesktopUI.Views
         {
             var FolderContent = new FolderContent();
             string FolderTag = ((System.Windows.FrameworkElement)folders.SelectedItem).Tag.ToString();
+            MoveModel.SetDestinationDirectory(FolderTag);
             SelectedFolderContain.ItemsSource = FolderContent.GetAllFiles(FolderTag);
         }
 
@@ -52,6 +53,11 @@ namespace SanityArchiver.DesktopUI.Views
             CheckBox checkBox = sender as CheckBox;
             var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
             string filePath = dataContext.CheckboxName;
+            string fileName = dataContext.FileName;
+            MoveModel.File = $"{fileName}.txt";
+            MoveModel.SourceFileName = filePath;
+            CopyFile.IsEnabled = true;
+            MoveFile.IsEnabled = true;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
         }
 
@@ -90,5 +96,39 @@ namespace SanityArchiver.DesktopUI.Views
             }
         }
 
+        private void CopyFile_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            if (MoveModel.CopyClickCounter == 0)
+            {
+                CopyFile.Content = "Paste";
+                MoveModel.CopyClickCounter = 1;
+            }
+            else if (MoveModel.CopyClickCounter == 1)
+            {
+                CopyFile.Content = "Copy";
+                CopyFile.IsEnabled = false;
+                MoveFile.IsEnabled = false;
+                MoveModel.CopyClickCounter = 0;
+                MoveViewModel.CopyFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory);
+            }
+        }
+
+        private void MoveFile_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (MoveModel.MoveClickCounter == 0)
+            {
+                MoveFile.Content = "Paste";
+                MoveModel.MoveClickCounter = 1;
+            }
+            else if (MoveModel.MoveClickCounter == 1)
+            {
+                MoveFile.Content = "Move";
+                MoveFile.IsEnabled = false;
+                CopyFile.IsEnabled = false;
+                MoveModel.MoveClickCounter = 0;
+                MoveViewModel.MoveFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory);
+            }
+        }
     }
 }

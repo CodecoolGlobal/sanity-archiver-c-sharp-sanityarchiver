@@ -77,7 +77,7 @@
     <Compile Include="ViewModels\AtribiutesView.cs" />
     <Compile Include="ViewModels\FolderContent.cs" />
     <Compile Include="ViewModels\FolderTree.cs" />
-    <Compile Include="ViewModels\Move.cs" />
+    <Compile Include="ViewModels\MoveViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\TextFileDisplay.cs" />
     <Compile Include="ViewModels\Zip.cs" />
