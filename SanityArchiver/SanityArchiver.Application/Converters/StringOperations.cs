@@ -24,5 +24,11 @@ namespace SanityArchiver.DesktopUI.Converters
             filePath += newFileName;
             return filePath;
         }
+
+        public static string GetFilePathWithoutName(string path)
+        {
+            path = path.Substring(0, Path.GetFileName(path).Length);
+            return path;
+        }
     }
 }

@@ -34,7 +34,7 @@
                 </Style>
             </TreeView.Resources>
         </TreeView>
-        <ListView x:Name="SelectedFolderContain" HorizontalAlignment="Left" Height="392" Margin="224,79,0,-0.333" VerticalAlignment="Top" Width="473" Grid.RowSpan="2">
+        <ListView x:Name="SelectedFolderContain" Margin="224,79,115.333,-2" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -59,7 +59,7 @@
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">                 
+                <Style TargetType="ListViewItem">
                     <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
                 </Style>
             </ListView.ItemContainerStyle>
