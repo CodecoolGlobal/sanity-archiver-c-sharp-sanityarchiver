@@ -15,8 +15,9 @@
             <RowDefinition Height="204*"/>
             <RowDefinition Height="193*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="SearchInput" Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Top" Margin="250, 0, 0, 0" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
-        <Button x:Name="SearchButton" Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Top" Margin="250, 20, 0, 0" HorizontalAlignment="Left">Search</Button>
+        <TextBox x:Name="SearchInput" Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Top" Margin="250, 0, 0, 0" HorizontalAlignment="Left" TextAlignment="Center" KeyUp="SearchInput_KeyUp"/>
+        <Button x:Name="SearchButton" Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Top" Margin="250, 20, 0, 0" HorizontalAlignment="Left" PreviewMouseLeftButtonUp="SearchButton_PreviewMouseLeftButtonUp">Search</Button>
+        <TextBlock x:Name="SearchCountResult" Grid.Row="0" Grid.Column="1" Width="200" Height="20" VerticalAlignment="Top" Margin="250, 50, 0, 0" HorizontalAlignment="Left"></TextBlock>
         <TreeView Name="folders" MouseDoubleClick="folders_MouseDoubleClick" HorizontalAlignment="Left" Width="224" Margin="0,0,0,-0.333" Grid.RowSpan="2">
             <TreeView.Resources>
                 <Style TargetType="TreeViewItem">
@@ -57,6 +58,11 @@
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">                 
+                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Button x:Name="Compress"  Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="229,54,0,0" VerticalAlignment="Top" Width="245"/>
         <Button x:Name="Decompress" Content=""  Visibility="Hidden"  HorizontalAlignment="Left" Margin="479,54,0,0" VerticalAlignment="Top" Width="218" Height="20"/>

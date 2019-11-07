@@ -18,7 +18,15 @@ namespace SanityArchiver.DesktopUI.ViewModels
             foreach (string dir in Directory.GetFiles(FolderPath))
             {
                 FileInfo _dirinfo = new FileInfo(dir);
-                items.Add(new FileProperties() { CheckboxName = _dirinfo.FullName, FileName = _dirinfo.Name, CreatedTime = _dirinfo.CreationTime, Size = System.String.Format("{0}KB", _dirinfo.Length / 1024) });
+                FileProperties file = new FileProperties()
+                {
+                    CheckboxName = _dirinfo.FullName,
+                    FileName = _dirinfo.Name,
+                    CreatedTime = _dirinfo.CreationTime,
+                    Size = System.String.Format("{0}KB", _dirinfo.Length / 1024),
+                };
+                items.Add(file);
+                file.GetFileName(_dirinfo.FullName);
 
             }
             return items;

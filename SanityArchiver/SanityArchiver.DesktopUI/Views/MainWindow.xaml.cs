@@ -43,6 +43,7 @@ namespace SanityArchiver.DesktopUI.Views
                 if (driv.IsReady)
                 {
                     FolderTree.Populate(driv.VolumeLabel + "(" + driv.Name + ")", driv.Name, folders, null, false);
+
                 }
             }
         }
@@ -52,9 +53,42 @@ namespace SanityArchiver.DesktopUI.Views
             var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
             string filePath = dataContext.CheckboxName;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
-            
         }
-        
+
+        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            var dataContext = (Application.Models.FileProperties)item.DataContext;
+            AtribiutesView.ShowDialogWindowWithAttributes(dataContext.FileName, dataContext.Extension, dataContext.isHidden);
+        }
+
+        private void CompressAction(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DecompressAction(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchButton_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+            {
+                SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+            }
+        }
+
+        private void SearchInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (SearchPhrase.IsPhraseLongEnough(SearchInput.Text))
+                {
+                    SearchPhrase.PopulateWithSearchResult(SelectedFolderContain, SearchCountResult);
+                }
+            }
+        }
 
     }
 }

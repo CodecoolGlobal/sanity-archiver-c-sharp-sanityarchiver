@@ -78,6 +78,7 @@
     <Compile Include="ViewModels\FolderContent.cs" />
     <Compile Include="ViewModels\FolderTree.cs" />
     <Compile Include="ViewModels\Move.cs" />
+    <Compile Include="ViewModels\SearchPhrase.cs" />
     <Compile Include="ViewModels\TextFileDisplay.cs" />
     <Compile Include="ViewModels\Zip.cs" />
     <Compile Include="Views\DialogWindow.xaml.cs">
