@@ -64,7 +64,7 @@
     <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Models\FileProperties.cs" />
     <Compile Include="Models\Move.cs" />
-    <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\ZipFileCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
