@@ -4,8 +4,10 @@ using System.IO.Compression;
 
 
 
+
 namespace SanityArchiver.Application.Models
 {
+    
     public static class ZipFileCreator
     {
         /// <summary>
@@ -14,11 +16,13 @@ namespace SanityArchiver.Application.Models
         /// <param name="fileName">The full path and name to store the ZIP file at.</param>
         /// <param name="files">The list of files to be added.</param>
         /// <param name="archiveName"></param>
-        public static void CreateZipFile(string fileName, IEnumerable<string> files, string archiveName)
+        
+        public static void CreateZipFile(List<string>PathList, string archiveName)  
         {
+            
             // Create and open a new ZIP file
-            var zip = ZipFile.Open(fileName + "/" + archiveName + ".rar", ZipArchiveMode.Create);
-            foreach (var file in files)
+            var zip = ZipFile.Open(archiveName + ".rar", ZipArchiveMode.Create);
+            foreach (var file in PathList)
             {
                 // Add the entry for each file
                 zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);

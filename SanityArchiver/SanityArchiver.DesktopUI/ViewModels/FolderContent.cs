@@ -12,6 +12,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
 {
     class FolderContent
     {
+        
         public List<FileProperties> GetAllFiles(string FolderPath)
         {
             var items = new List<FileProperties>();
@@ -63,18 +64,33 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 };
             }
         }
-
-        public static void CheckIfCompressable(string[] _selectedFilesPath, Button zipbutton)
+        public static void ListPathManipulation(string FilePath,CheckBox checkBox, List<string> Zip)
         {
-            if(_selectedFilesPath.Length > 0)
+           if (checkBox.IsChecked.Equals(true))
+           {
+                Zip.Add(FilePath);                
+           }
+           if (checkBox.IsChecked.Equals(false))
             {
-                if (_selectedFilesPath.Length == 1 & _selectedFilesPath.Contains(".zip"))
+                var item = Zip.SingleOrDefault(x => x == FilePath);
+                if (item != null)
+                {
+                    Zip.Remove(item);
+                }
+                    
+            }
+        }
+        public static void CheckIfCompressable(List<string> _selectedFilesPath,Button zipbutton)
+        {
+            if(_selectedFilesPath.Count > 0)
+            {
+                if (_selectedFilesPath.Count == 1 & _selectedFilesPath.Contains(".zip"))
                 {
                     zipbutton.Content = "Unzip";
                     zipbutton.Visibility = Visibility.Visible;
                     zipbutton.Click += (sender, e) =>
                     {
-                        //ZipFileCreator.DecompressFile(_selectedFilesPath)
+                        //ZipFileCreator.DecompressFile(_selectedFilesPath);
                         zipbutton.Visibility = Visibility.Hidden;
                     };
                 }
@@ -84,7 +100,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
                     zipbutton.Visibility = Visibility.Visible;
                     zipbutton.Click += (sender, e) =>
                     {
-                        //ZipFileCreator.CreateZipFile(_selectedFilesPath)
+                        
                         zipbutton.Visibility = Visibility.Hidden;
                     };
                 }

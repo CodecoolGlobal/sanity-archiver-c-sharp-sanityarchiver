@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SanityArchiver.DesktopUI.Views"
         mc:Ignorable="d"
-        Title="DialogWindow" Height="auto" Width="auto">
-    <Grid x:Name="MainGrid" Height="auto" Width="auto">
+        Title="DialogWindow" Height="auto" Width="auto" d:DesignWidth="310" d:DesignHeight="163.667">
+    <Grid x:Name="MainGrid" Height="auto" Width="auto" Margin="0,0,3.333,0.333">
         
     </Grid>
 </Window>

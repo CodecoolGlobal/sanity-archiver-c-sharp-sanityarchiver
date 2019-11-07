@@ -19,6 +19,7 @@ namespace SanityArchiver.DesktopUI.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModels.Zip Zip = new Zip();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -26,6 +27,7 @@ namespace SanityArchiver.DesktopUI.Views
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void folders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -53,6 +55,8 @@ namespace SanityArchiver.DesktopUI.Views
             var dataContext = (Application.Models.FileProperties)checkBox.DataContext;
             string filePath = dataContext.CheckboxName;
             FolderContent.CheckIfEncryptable(filePath, Encrypt);
+            FolderContent.ListPathManipulation(filePath, checkBox, Zip.PathList);
+            FolderContent.CheckIfCompressable(Zip.PathList, Compress);
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
