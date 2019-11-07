@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SanityArchiver.Application.Models
 {
-    public class Search
+    public class SearchModel
     {
 
         public static string Phrase { get; set; } = "";
