@@ -117,8 +117,9 @@ namespace SanityArchiver.DesktopUI.Views
                 CopyFile.IsEnabled = false;
                 MoveFile.IsEnabled = false;
                 MoveModel.CopyClickCounter = 0;
-                MoveViewModel.CopyFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory);
+                MoveViewModel.CopyFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory, Zip);
             }
+            
         }
 
         private void MoveFile_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -134,8 +135,9 @@ namespace SanityArchiver.DesktopUI.Views
                 MoveFile.IsEnabled = false;
                 CopyFile.IsEnabled = false;
                 MoveModel.MoveClickCounter = 0;
-                MoveViewModel.MoveFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory);
+                MoveViewModel.MoveFile(MoveModel.SourceFileName, MoveModel.DestinantionDirectory, Zip);
             }
+
         }
         private void Open_Click(object sender, RoutedEventArgs e)
         {
